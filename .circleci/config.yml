@@ -1,8 +1,21 @@
 version: 2.1
 
+references:
+    base_image: &base_image
+        circleci/golang:1.12-stretch
+
+    working_directory: &working_directory
+        ~/proj
+
+    default_config: &default_config
+        docker:
+            - image: *base_image
+        working_directory: *working_directory
 jobs:
     build:
-        - run: echo "test"
+        <<: *default_config
+        steps:
+            - run: echo "test"
 
 workflows:
     version: 2.1
