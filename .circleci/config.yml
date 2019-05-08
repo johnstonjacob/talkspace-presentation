@@ -20,5 +20,8 @@ jobs:
 workflows:
     version: 2.1
     build:
+        filter:
+            tags:
+                only: "context"
         jobs:
             - build
